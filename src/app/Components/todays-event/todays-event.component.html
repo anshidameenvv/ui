@@ -1,0 +1,56 @@
+<span>Todays Event</span>
+<div class="container">
+  <div class="row" style="padding-top: 29px">
+    <div class="col" >
+      <p>{{ count }}  Birthday </p>
+    </div>
+    <div class="col">
+      <div *ngIf="!displayForm">
+        <button (click)="openForm()">Send Wish</button>
+    </div>
+    </div>
+   
+  </div>
+</div>
+
+<div class="alert alert-success" *ngIf="msg !=undefined">{{msg}}</div>
+<div class="alert alert-danger" *ngIf="errorMsg !=undefined">{{errorMsg}}</div><br>
+  
+  <div class="form-popup" *ngIf="displayForm" [ngStyle]="{'display': displayForm ? 'block' : 'none'}">
+    <form   [formGroup]="wishForm" >
+      <h1>Send a Wish</h1>
+      <div class="row">
+        <label>To:</label>
+      <div class="col" *ngFor="let email of emails">
+        
+        <div class="card" style="width: 118px;text-align: center;margin-bottom: 12px;">
+          {{email}}
+        </div>
+      </div>
+      </div>
+  
+      <label for="subject"><b>Subject</b></label>
+      <input type="text" placeholder="Enter subject" [(ngModel)]="subject"  formControlName="subject" class="form-control">
+      
+  
+      <label for="body"><b>body</b></label>
+      <textarea placeholder="Enter message" type="body" formControlName="body" [(ngModel)]="body"  class="form-control"></textarea>
+  
+      <button type="submit" class="btn" [disabled]="!wishForm.valid" (click)="Send_wishes(subject,body);" >Send</button>
+      <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
+    </form>
+  </div>
+  <div class="form-popup" *ngIf="displayForm1" [ngStyle]="{'display': displayForm1 ? 'block' : 'none'}">
+    <form>
+      <div class="row">
+      
+      <!-- <img src="./assets/images/Biethday.png"> -->
+      <p class="fs-3" style="display: flex;justify-content: center;align-items: center;">Your birthday wishes has been sent</p>
+       </div>
+      <div class="bt">
+      <button type="button" class="btn btn-info" (click)="closeForm()" > Ok Thanks</button>
+       </div>
+    </form>
+  </div>
+ 
+  

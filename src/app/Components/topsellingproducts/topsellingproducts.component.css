@@ -1,0 +1,24 @@
+.progress{
+    width: 157px;
+    height: 12px;
+    margin-top: 10px;
+}
+.id1{
+    
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
+#id2{
+    padding-right: 15px;
+}
+#i3{
+    padding-left: 35px;
+}
+#prl{
+    background-color: black;
+}
+#p2{
+    padding-right: 10px;
+}
+  

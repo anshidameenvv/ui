@@ -1,0 +1,147 @@
+a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #4CAF50; /* green color */
+    border-radius: 60%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    text-decoration: none;
+  }
+#gt{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+#hk{
+    width: 50px;
+    height: 50px;
+    background-color: #ec3232; /* green color */
+    border-radius: 60%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    text-decoration: none;
+    margin-left: 13px;
+  
+}
+#car{
+  align-items: flex-start;
+}
+#sv{
+ padding-right: 40px;
+}
+#sg{
+  padding-right: 20px;
+}
+
+.date {
+
+  font-size: 1.2em;
+  
+  margin-bottom: 1em;
+  
+  text-align: right;
+ margin-top: -28px;
+  
+   }
+  
+  
+  
+  
+  .days {
+  
+  display: flex;
+  
+ justify-content: space-between;
+  
+   margin-bottom: 1em;
+  
+   width: 210px;
+  
+  margin-left: 10px;
+  
+  
+  
+  
+}
+.card-sc{
+
+  width: 60px!important;
+  
+   height: 65px;
+  
+   border: solid #D0D0D0 2px;
+  
+   padding: 10px;
+  
+   text-align: center;
+  
+   margin-right: 10px;
+  
+   border-radius: 10px;
+  
+   margin-bottom: 5px;
+   margin-top: 5px;
+  
+  }
+  
+ 
+
+  .scl-cal{
+    align-items: stretch;
+    
+    display: flex;
+    
+   flex-direction: row;
+    
+   flex-wrap: wrap;
+    
+   overflow-x: auto;
+   overflow-y: hidden;
+}
+    
+  .scl-cal::-webkit-scrollbar {
+     display: none;
+    
+    }
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .card {
+      width: 84px;
+      height: 61px;
+    }   
+    
+    .card-sc{
+       width: 69px!important;
+       height: 65px;
+       border: solid #D0D0D0 2px;
+       padding: 10px;
+       text-align: center;
+        margin-right: 10px;
+        border-radius: 10px;
+         margin-bottom: 20px;
+      
+      }
+      .scl-cal{
+        align-items: stretch;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+         verflow-x: auto;
+         verflow-y: hidden;
+  }
+.scl-cal::-webkit-scrollbar {
+   display: none;
+        
+  }
+  .current{
+background-color: #1BABDB;
+ border: none;
+ color: #fff;
+ }

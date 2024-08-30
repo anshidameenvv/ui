@@ -1,0 +1,30 @@
+
+  <div class="sidebar" [ngClass]="{ 'collapsed': isCollapsed }" style="margin-top: 59px;color: black;">
+    <ul>
+      <li><i (click)="toggleCollapse()" class="bi bi-caret-right" style="margin-left: 10px;"></i></li>
+    </ul>
+    <ul>
+      <li *ngFor="let item of menuItems" >
+        <a  class="active" (click)="navigateTo(item.route)" >
+          <i class="fa" [ngClass]="item.icon" style="padding: 10px;"></i>
+          <span class="nav-text" [class.invisible]="isCollapsed">{{ item.description }}</span>
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <i class="bi bi-box-arrow-left" style="margin-left: 10px;"></i>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <div class="form-check form-switch">
+          <input class="form-check-input" style="margin-left:-24.9px;"type="checkbox" id="flexSwitchCheckChecked" checked>
+        
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1cl"></script>

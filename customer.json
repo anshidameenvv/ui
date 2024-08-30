@@ -1,0 +1,70 @@
+{ "customers":[
+
+    {  
+    "Policy_Owner": "Kirti Gupta",  
+    "life_insured": "Kirti Gupta",  
+    "prd_type": "Corona Kavach" ,
+    "application_no":"240427",
+    "date":"10/9/2023",
+    "SA":"100,000.00",
+    "status":"UW" 
+  },
+
+  {  
+    "Policy_Owner": "John Smith",  
+    "life_insured": "John Smith",  
+    "prd_type": "Protect Plus" ,
+    "application_no":"918240",
+    "date":"12/9/2023",
+    "SA":"100,000.00",
+    "status":"UW" 
+  },
+
+  {  
+    "Policy_Owner": "Kirti Gupta",  
+    "life_insured": "Kirti Gupta",  
+    "prd_type": "Corona Kavach" ,
+    "application_no":"240427",
+    "date":"10/9/2023",
+    "SA":"100,000.00",
+    "status":"UW" 
+  },
+
+  {  
+    "Policy_Owner": "John Smith",  
+    "life_insured": "John Smith",  
+    "prd_type": "Protect Plus" ,
+    "application_no":"918240",
+    "date":"12/9/2023",
+    "SA":"100,000.00",
+    "status":"UW" 
+  },
+  {  
+    "Policy_Owner": "Kirti Gupta",  
+    "life_insured": "Kirti Gupta",  
+    "prd_type": "Corona Kavach" ,
+    "application_no":"240427",
+    "date":"10/9/2023",
+    "SA":"100,000.00",
+    "status":"Rejected" 
+  },
+  {  
+    "Policy_Owner": "John Smith",  
+    "life_insured": "John Smith",  
+    "prd_type": "Protect Plus" ,
+    "application_no":"918240",
+    "date":"12/9/2023",
+    "SA":"100,000.00",
+    "status":"UW Approved" 
+  },
+  {  
+    "Policy_Owner": "Kirti Gupta",  
+    "life_insured": "Kirti Gupta",  
+    "prd_type": "Corona Kavach" ,
+    "application_no":"240427",
+    "date":"10/9/2023",
+    "SA":"100,000.00",
+    "status":"UW" 
+  }
+
+]}

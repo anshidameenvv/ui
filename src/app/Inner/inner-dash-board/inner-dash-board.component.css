@@ -1,0 +1,23 @@
+.row{
+    padding-bottom: 10px;
+    padding-left: 195px;
+    padding-top: 0px;
+    padding-right: 18px;
+    display: flex;
+  
+}
+
+#even{
+        z-index: 1;
+        display: flex;
+}
+.card {
+    width: 300px; /* Adjust the width of the card as needed */
+    height: auto;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }

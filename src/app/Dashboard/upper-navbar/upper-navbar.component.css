@@ -1,0 +1,14 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+#root{
+color: rgb(0, 0, 162);
+display: inline;
+}
+#img{
+    width:36px;
+    height:36px;
+   image-resolution: 78px;
+   margin-left: 30px;
+}
+.container-fluid{
+    padding-left: 00px;
+}

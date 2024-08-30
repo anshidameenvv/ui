@@ -1,0 +1,761 @@
+<div id="all">
+
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <div class="alert alert-success" *ngIf="msg !=undefined">{{msg}}</div>
+        <div class="alert alert-danger" *ngIf="errorMsg !=undefined">{{errorMsg}}</div><br>
+
+        <mat-step [stepControl]="personalDetailsForm"
+            [completed]="stepper.selectedIndex>= 0" class="mat-form-field">
+            
+            <form [formGroup]="personalDetailsForm"
+                (ngSubmit)="addPersonalDetails()">
+                <mat-card>
+                    <mat-card-title>
+                        <ng-template matStepLabel>PERSONAL DETAILS</ng-template>
+                    </mat-card-title>
+                </mat-card>
+                <div class="row gx-5">
+                    <div class="col p-3 ">
+
+                        <div class="form-group ">
+                            <mat-label for="First name">First name</mat-label>
+                            <input matInput type="text"
+                                formControlName="firstName"
+                                [(ngModel)]="leads.firstName"
+                                placeholder="Enter First Name"
+                                class="form-control" />
+                            <div *ngIf="valid.firstName.invalid
+                                &&(valid.firstName.dirty ||
+                                valid.firstName.touched)"
+                                class="alert alert-danger">
+
+                                <div *ngIf="valid.firstName.errors?.required">
+                                    * Please enter first name.
+                                </div>
+
+                                <div *ngIf="valid.firstName.errors?.maxLength">
+                                    * Maximum Of 50 characters
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col p-3 ">
+
+                        <div class="form-group ">
+                            <mat-label for="Last name">Last name</mat-label>
+                            <input matInput type="text"
+                                formControlName="lastName"
+                                [(ngModel)]="leads.lastName"
+                                placeholder="Enter Last Name"
+                                class="form-control" />
+                            <div *ngIf="valid.lastName.invalid
+                                &&(valid.lastName.dirty ||
+                                valid.lastName.touched)"
+                                class="alert alert-danger">
+
+                                <div *ngIf="valid.lastName.errors?.required">
+                                    * Please enter last name.
+                                </div>
+
+                                <div *ngIf="valid.lastName.errors?.maxLength">
+                                    * Maximum Of 50 characters
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row gx-5">
+                    <div class="col p-3">
+
+                        <div class="form-group ">
+                            <mat-label for="PhoneNumber">Phone Number</mat-label>
+                            <input matInput type="tel"
+                                formControlName="phoneNumber"
+                                [(ngModel)]="leads.phoneNumber"
+                                placeholder="Enter Phone number"
+                                class="form-control" />
+                            <div *ngIf="valid.phoneNumber.invalid
+                                &&(valid.phoneNumber.dirty ||
+                                valid.phoneNumber.touched)"
+                                class="alert alert-danger">
+
+                                <div *ngIf="valid.phoneNumber.errors?.required">
+                                    * Please enter phone Number.
+                                </div>
+
+                                <div *ngIf="valid.phoneNumber.errors?.pattern">
+                                    Phone number must be in the format of"+<2digit>-<10digit>"
+                                        </div>
+                            </div>
+                        </div>
+
+                    </div>
+                            <div class="col p-3">
+
+                                <div class="form-group ">
+                                    <mat-label for="EmailAddress">EmailAddress</mat-label>
+                                    <input matInput type="email"
+                                        formControlName="emailAddress"
+                                        [(ngModel)]="leads.emailAddress"
+                                        placeholder="Enter EmailAddress "
+                                        class="form-control" />
+
+                                    <div *ngIf="valid.emailAddress.invalid
+                                        &&(valid.emailAddress.dirty ||
+                                        valid.emailAddress.touched)"
+                                        class="alert alert-danger">
+
+                                        <div
+                                            *ngIf="valid.emailAddress.errors?.required">
+                                            * Please enter last name.
+                                        </div>
+
+                                        <div
+                                            *ngIf="valid.emailAddress.errors?.maxLength">
+                                            * Maximum Of 50 characters
+                                        </div>
+                                        <div
+                                            *ngIf="valid.emailAddress.errors?.pattern">
+                                            * valid format xxxx@xxx.com
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                </div>
+
+                        <div class="row gx-5">
+                            <div class="col p-3">
+
+                                <div class="form-group ">
+                                    <mat-label for="DateOfBirth">Date Of Birth</mat-label>
+                                    <input matInput type="date"
+                                        formControlName="dateOfBirth"
+                                        [(ngModel)]="leads.dateOfBirth"
+                                        placeholder="Enter date of Birth "
+                                        class="form-control" />
+                                    <div *ngIf="valid.dateOfBirth.invalid
+                                        &&(valid.dateOfBirth.dirty ||
+                                        valid.dateOfBirth.touched)"
+                                        class="alert alert-danger">
+                                    <div
+                                        *ngIf="valid.dateOfBirth.errors?.required">
+                                        * Please enter date of Birth.
+                                    </div>
+                                    <div
+                                        *ngIf="valid.dateOfBirth.errors?.minAge">
+                                        * Age must be greater than 18
+                                    </div>
+                                </div>
+                                </div>
+
+                            </div>
+                            <div class="col p-3">
+
+                                <div class="form-group ">
+                                    <label for="Pincode">Pincode</label>
+                                    <input matInput type="number"
+                                        formControlName="pincode"
+                                        [(ngModel)]="leads.pincode"
+                                        placeholder="Enter pincode"
+                                        class="form-control" />
+                                <div *ngIf="valid.pincode.invalid
+                                        &&(valid.pincode.dirty ||
+                                        valid.pincode.touched)"
+                                        class="alert alert-danger">
+                                    <div
+                                        *ngIf="valid.pincode.errors?.required">
+                                        * Please enter pincode.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        </div>
+                        <div class="row gx-5">
+
+
+                            <div class="form-group ">
+                                <mat-label>Gender</mat-label>
+                                <mat-radio-group [(ngModel)]="leads.gender"
+                                    name="gender" formControlName="gender"
+                                    required>
+                                    <mat-radio-button value="male">Male</mat-radio-button>
+                                    <mat-radio-button value="female">Female</mat-radio-button>
+                                    <div *ngIf="valid.gender.invalid
+                                        &&(valid.gender.dirty ||
+                                        valid.gender.touched)"
+                                        class="alert alert-danger">
+                                    <div
+                                        *ngIf="valid.gender.errors?.required">
+                                        * Please enter gender.
+                                    </div>
+                                    </div>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="row gx-5">
+                            <div class="col p-3">
+                                <br>
+                                <mat-label>Do you smoke?</mat-label>
+                                <br>
+                                <mat-button-toggle-group type="String"
+                                    [(ngModel)]="leads.smokeDetails"
+                                    name="smokeDetails"
+                                    formControlName="smokeDetails"
+                                    aria-label="favoriteColor">
+                                    <mat-button-toggle value="Yes">Yes</mat-button-toggle>
+                                    <mat-button-toggle value="No">No</mat-button-toggle>
+                                </mat-button-toggle-group>
+                                <br>
+
+                            </div>
+                            <div class="col p-3">
+                                <mat-label>Do you consume Alcohol?</mat-label>
+                                <br>
+                                <mat-button-toggle-group type="String"
+                                    [(ngModel)]="leads.alcoholDetails"
+                                    name="alcoholDetails"
+                                    formControlName="alcoholDetails"
+                                    name="AlcoholDetails" aria-label="Basic
+                                    radio toggle button group">
+                                    <mat-button-toggle value="Yes">Yes</mat-button-toggle>
+                                    <mat-button-toggle value="No">No</mat-button-toggle>
+                                </mat-button-toggle-group>
+                            </div>
+
+                        </div>
+                        <div class="row gx-5">
+                            <div class="col p-3" id="up">
+
+                                <div class="form-group ">
+                                    <mat-label for="Address">Address</mat-label>
+                                    <textarea matInput type="text"
+                                        formControlName="address"
+                                        [(ngModel)]="leads.address"
+                                        class="form-control" id="up"></textarea>
+                                    <div *ngIf="valid.address.invalid
+                                        &&(valid.address.dirty ||
+                                        valid.address.touched)"
+                                        class="alert alert-danger">
+                                    <div
+                                        *ngIf="valid.address.errors?.required">
+                                        * Please enter address.
+                                    </div>
+                                </div>
+                                            
+                                </div>
+
+                            </div>
+                            <div class="col p-3">
+                                <mat-label for="dateOfContact">Date of Contact</mat-label>
+                                <input matInput type="date"
+                                    formControlName="dateOfContact"
+                                    [(ngModel)]="leads.dateOfContact"
+                                    placeholder="Enter date of contact "
+                                    class="form-control" [value]="currentDate"
+                                    />
+                            <div *ngIf="valid.dateOfContact.invalid
+                                    &&(valid.dateOfContact.dirty ||
+                                    valid.dateOfContact.touched)"
+                                    class="alert alert-danger">
+                                <div
+                                    *ngIf="valid.dateOfContact.errors?.required">
+                                    * Please enter Date Of Contact.
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row gx-5">
+                            <div class="col p-3" id="up">
+                                <button mat-button matStepperPrevious>Back</button>
+                            </div>
+                            <div class="col p-3" id="up">
+                                <button mat-button class="btn btn-info"
+                                    matStepperNext>Next</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="incomedetailsForm"
+                    [completed]="stepper.selectedIndex>= 1">
+                    <div class="conta" style="margin-left: 100px;">
+                        <form [formGroup]="incomedetailsForm"
+                            (ngSubmit)="addIncomeDetails()">
+                            <ng-template matStepLabel>INCOME DETAILS</ng-template>
+                            <div class="row gx-5">
+                                <div class="col p-3 ">
+                                    <div class="form-group">
+                                        <div>
+                                            <mat-label>Annual income</mat-label>
+                                        </div>
+                                        <input matInput
+                                            formControlName="annualIncome"
+                                            type="date"
+                                            [(ngModel)]="leads.annualIncome"
+                                            id="ig" placeholder="annualIncome">
+                                    <div *ngIf="validi.annualIncome.invalid
+                                        &&(validi.annualIncome.dirty ||
+                                        validi.annualIncome.touched)"
+                                        class="alert alert-danger" style="width: 446px;">
+                                    <div
+                                        *ngIf="validi.annualIncome.errors?.required">
+                                        * Please enter Annual Income.
+                                    </div>
+                                    <div
+                                        *ngIf="validi.annualIncome.errors?.validateCurrentYear">
+                                        * current year
+                                    </div>
+                                </div>
+
+                                    </div>
+                                </div>
+                                <div class="col p-3 ">
+
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3 ">
+                                    <div class="form-group ">
+                                        <div>
+                                            <mat-label>Government rebate</mat-label>
+                                        </div>
+                                        <input matInput
+                                            formControlName="governmentRebate"
+                                            type="number"
+                                            id="ig"
+                                            [(ngModel)]="leads.governmentRebate"
+                                            placeholder="governmentRebate">
+
+                                        <div *ngIf="validi.governmentRebate.invalid
+                                            &&(validi.governmentRebate.dirty ||
+                                            validi.governmentRebate.touched)"
+                                            class="alert alert-danger" style="width: 446px;">
+                                        <div
+                                            *ngIf="validi.governmentRebate.errors?.required">
+                                            * Please enter Government Rebate.
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col p-3 ">
+
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3 ">
+                                    <div class="form-group ">
+                                        <div>
+                                            <mat-label>Tax rebate</mat-label>
+                                        </div>
+                                        <input matInput
+                                            formControlName="taxRebate"
+                                            type="number"
+                                            [(ngModel)]="leads.taxRebate"
+                                            id="ig" placeholder="taxRebate">
+
+                                        <div *ngIf="validi.taxRebate.invalid
+                                            &&(validi.taxRebate.dirty ||
+                                            validi.taxRebate.touched)"
+                                            class="alert alert-danger" style="width: 446px;">
+                                        <div
+                                            *ngIf="validi.taxRebate.errors?.required">
+                                            * Please enter Tax Rebate.
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col p-3 ">
+
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3 ">
+                                    <div class="form-group ">
+                                        <button mat-button matStepperPrevious>Back</button>
+                                    </div>
+                                </div>
+                                <div class="col p-3 ">
+                                    <div class="form-group ">
+                                        <button mat-button class="btn btn-info"
+                                            matStepperNext>Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </mat-step>
+                <mat-step [stepControl]="documentsForm"
+                    [completed]="stepper.selectedIndex>= 2">
+                    <form [formGroup]="documentsForm"
+                        (ngSubmit)="addDocuments()">
+                        <ng-template matStepLabel> DOCUMENTS</ng-template>
+
+                        <div class="row gx-5">
+                            <div class="col p-3 ">
+
+                                <div class="card" style="height: 275px;width:
+                                    444px;">
+                                    <label for="addLead">Identity Proof</label>
+                                    <img
+                                        src="./assets/images/magnetism-drop-zoneinvisible-area.png"
+                                        style="width: 286px;
+                                        margin-left: 72px;
+                                        margin-bottom: 21px" alt="Image"
+                                        class="card-image">
+                                    <div class="form-group " style="margin-left:
+                                        41px;">
+                                        <div>
+
+                                        </div>
+                                        <div>
+
+                                            <input type="file"
+                                                formControlName="identityProof"
+                                                placeholder="Enter Identity
+                                                Proof" class="form-control"
+                                                id="hd" />
+                                            <div *ngIf="validd.identityProof.invalid
+                                                &&(validd.identityProof.dirty ||
+                                                validd.identityProof.touched)"
+                                                class="alert alert-danger" style="width: 446px;">
+                                            <div
+                                                *ngIf="validd.identityProof.errors?.required">
+                                                * Please enter Identity Proof.
+                                            </div>
+                                            
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col p-3 ">
+
+                                <div class="card" style="height: 275px;width:
+                                    444px;">
+                                    <label for="addLead">Financial Proof</label>
+                                    <div class="form-group " style="margin-left:
+                                        35px;">
+                                        
+                                        <img
+                                            src="./assets/images/magnetism-drop-zoneinvisible-area.png"
+                                            style="width: 286px;
+                                            margin-left: 72px;
+                                            margin-bottom: 21px" alt="Image"
+                                            class="card-image">
+                                        <input type="file"
+                                            formControlName="financialProof"
+                                            placeholder="Enter FinancialProof"
+                                            class="form-control" id="hd" />
+                                            <div *ngIf="validd.financialProof.invalid
+                                            &&(validd.financialProof.dirty ||
+                                            validd.financialProof.touched)"
+                                            class="alert alert-danger" style="width: 446px;">
+                                        <div
+                                            *ngIf="validd.financialProof.errors?.required">
+                                            * Please enter Financial Proof.
+                                        </div>
+                                        
+                                    </div>     
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3 ">
+                                    <button mat-button matStepperPrevious>Back</button>
+                                </div>
+                                <div class="col p-3 " id="sd">
+                                    <button mat-button class="btn btn-info"
+                                        matStepperNext>Next</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="quotationForm"
+                    [completed]="stepper.selectedIndex>= 3">
+                    <form [formGroup]="quotationForm">
+
+                        <ng-template matStepLabel>QUOTATAION</ng-template>
+
+                        <div class="card shadow"
+                            style="width:63rem;height:17rem;">
+                            <div class="cd" style="margin-left: 19px;">
+                                <div class="row ">
+                                    <div class="col p-3 ">
+                                        <div>
+                                            <h4>Quotation Reference</h4>
+                                            <p><b> GRH/3345</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="col p-3 ">
+                                        <div>
+                                            <h4>Premium</h4>
+                                            <p><b>$70 per Week</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col ">
+
+                                        <h4>Product</h4>
+                                        <p><b> CG Protect</b></p>
+
+                                    </div>
+                                    <div class="col">
+
+                                        <h4>Sum Insured Upto</h4>
+                                        <p><b> $200,000</b></p>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col ">
+                                        <button type="button" class="btn
+                                            btn-light">View
+                                            Benifits</button>
+                                    </div>
+                                    <div class="col">
+                                        <div class="con">
+                                            <i class="bi bi-share"></i>
+                                            <i class="bi bi-whatsapp"
+                                                style="color:green"></i>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card shadow"
+                            style="width:63rem;height:17rem;margin-top: 25px;">
+                            <div class="cd" style="margin-left: 19px;">
+                                <a>Application Details</a>
+                                <div class="row" style="margin-top: 16px;">
+                                    <div class="col">
+                                        <div>
+                                            <h5> Applicant's Name</h5>
+                                            <p><b>{{personalDetailsForm.value.firstName }}</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <h5> Address</h5>
+                                            <p><b>{{personalDetailsForm.value.address }}</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <h5>Email</h5>
+                                            <p><b>{{personalDetailsForm.value.emailAddress}}</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>Phone Number</h5>
+                                        <p><b>{{personalDetailsForm.value.phoneNumber}}</b></p>
+                                    </div>
+                                    <div class="col">
+                                        <h5>Gender</h5>
+                                        <p><b>{{personalDetailsForm.value.gender}}</b></p>
+                                    </div>
+                                    <div class="col">
+                                        <h5>Date of Birth</h5>
+                                        <p><b>{{personalDetailsForm.value.dateOfBirth}}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>Consumes Alcohol</h5>
+                                        <p><b>{{personalDetailsForm.value.alcoholDetails}}</b></p>
+                                    </div>
+                                    <div class="col">
+                                        <h5>Consumes Tobacco</h5>
+                                        <p><b>{{personalDetailsForm.value.smokeDetails}}</b></p>
+                                    </div>
+                                    <div class="col">
+                                        <h5>Date of Contact</h5>
+                                        <p><b>{{personalDetailsForm.value.dateOfContact}}</b></p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row" style="margin-top: 31px;">
+                            <div class="col ">
+                                <button mat-button matStepperPrevious>Back</button>
+                            </div>
+                            <div class="col ">
+                                <button class="btn btn-info" mat-button
+                                    matStepperNext (click)="addQuotation()">Send
+                                    payment Link</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Quotation summary</ng-template>
+                    <div class="card shadow" style="width:63rem;height:17rem;">
+                        <div class="cd" style="margin-left: 19px;">
+                            <div class="row ">
+                                <div class="col p-3 ">
+                                    <div>
+                                        <h4>Quotation Reference</h4>
+                                        <p><b> GRH/3345</b></p>
+                                    </div>
+                                </div>
+                                <div class="col p-3 ">
+                                    <div>
+                                        <h4>Premium</h4>
+                                        <p><b>$70 per Week</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col ">
+
+                                    <h4>Product</h4>
+                                    <p><b> CG Protect</b></p>
+
+                                </div>
+                                <div class="col">
+
+                                    <h4>Sum Insured Upto</h4>
+                                    <p><b> $200,000</b></p>
+
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col ">
+                                    <button type="button" class="btn btn-light">View
+                                        Benifits</button>
+                                </div>
+                                <div class="col">
+                                    <div class="con">
+                                        <i class="bi bi-share"></i>
+                                        <i class="bi bi-whatsapp"
+                                            style="color:green"></i>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow"
+                        style="width:63rem;height:33rem;margin-top: 10px;">
+
+                        <div class="row" style="margin-top: 10px;">
+
+                            <div class="col col-lg-2">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div class="col-md-auto">
+                                <h6><b>Application has been sent for review</b></h6>
+                                <h6>you will get notified once the application
+                                    get reviewed</h6>
+                            </div>
+                            <div class="col-4">
+                                <div class="con">
+                                    <i class="bi bi-pen"></i>
+                                    <i class="bi bi-telephone-forward"></i>
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="st" style="margin-left: 112px">
+                            <div class="row gx-5">
+                                <div class="col p-3">
+                                    <h5> Applicant's Name</h5>
+
+                                </div>
+                                <div class="col p-3">
+                                    <p><b>{{personalDetailsForm.value.firstName }}</b></p>
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3">
+                                    <h5>Product name</h5>
+                                </div>
+                                <div class="col ">
+                                    <P><b>CG product</b></P>
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3">
+                                    <h5>Applicants Number</h5>
+                                </div>
+                                <div class="col p-3">
+                                    <p><b>746585</b></p>
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3">
+                                    <h5>Address</h5>
+                                </div>
+                                <div class="col p-3">
+                                    <p><b>{{personalDetailsForm.value.address}}</b></p>
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3">
+                                    <h5>Email</h5>
+                                </div>
+                                <div class="col p-3">
+                                    <p><b> {{personalDetailsForm.value.emailAddress}}</b></p>
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3">
+                                    <h5>Status</h5>
+                                </div>
+                                <div class="col p-3">
+                                    <button type="button" class="btn
+                                        btn-warning">UW progress</button>
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <div class="col p-3">
+                                    <h5>Submission date</h5>
+                                </div>
+                                <div class="col p-3">
+                                    <div>{{ currentDate| date:'yyyy-MM-dd' }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </mat-step>
+            </mat-horizontal-stepper>
+
+
+
+
+        </div>

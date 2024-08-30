@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row" style="margin-top: 57px">
+      <div class="col">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+            <li><a class="dropdown-item active" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-light">Qualified</button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-light">Intrested</button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-info"  routerLink="/customerForm">AddNewLeads</button>
+      </div>
+    </div>
+   
+    <div class="row" style="margin-top: 57px">
+       
+        <div class="col">
+          
+            <div class="table-responsive text-center">
+                <table class="table ">
+                    <thead class="thead-dark ">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Last contacted</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Lead Stage</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let lead of leads ">
+                            <td>{{lead.firstName}}</td>
+                            <td>Two days ago</td>
+                            <td>Team Insurance</td>
+                            <td>{{lead.emailAddress}}</td>
+                            <td>{{lead.phoneNumber}}</td>
+                            <td>contacted</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+     
+    </div>
+</div>
+  

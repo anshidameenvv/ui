@@ -1,0 +1,37 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+#sd{
+
+        background-color: #030354d1;
+        color: white;
+        padding: 20px;
+        flex-grow: 1;
+        flex-basis: 0;
+}
+#img{
+    width: 70px;
+    height: 62px;
+   image-resolution: 78px;
+  
+}
+#kd{
+    display: flex;
+ 
+  align-items: center;
+}
+#icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: -17px;
+} 
+#od{
+  display: flex; 
+}
+
+  i {
+    border-radius: 63%;
+    padding: 13px;
+    background-color: #c5c5d3;
+    color: white;
+  }

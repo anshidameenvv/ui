@@ -1,0 +1,37 @@
+/* Popup container - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+  }
+  
+  /* Add styles to the form container */
+  .form-popup form {
+    position: relative;
+    top: 52%;
+    left: 51%;
+    transform: translate(-51%, -50%);
+    max-width: 957px;
+    padding: 49px;
+    background-color: #fff;
+  }
+  
+  /* Full-width input fields */
+  .form-popup form input[type=text], .form-popup form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 15px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  .bt{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 13vh;
+  }

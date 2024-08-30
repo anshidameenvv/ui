@@ -1,0 +1,71 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+.form-group{
+    width:84%;
+}
+
+#all{
+    margin-left: 237px;
+}
+#fg{
+    width: 451px;
+}
+#sd{
+  color: aqua;
+}
+.con {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  i {
+    margin: 0 10px;
+  }
+  .mat-horizontal-stepper-header-container.hidden-container {
+    display: none;
+  }
+  
+  .mat-step-header {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .mat-step-header .mat-step-label {
+    display: none;
+  }
+  
+  .mat-step-header .mat-icon {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  
+  .mat-card {
+    margin: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  #sd{
+    margin-left: 587px;
+  }
+  .mat-card-title {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .mat-card-content {
+    padding: 16px;
+  }
+  
+  
+  #ig{
+    width: 83%;
+    height: 40px;
+  }
+  h5{
+    color: rgba(50, 54, 56, 0.53)
+  }
